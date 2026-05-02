@@ -44,9 +44,7 @@ These instructions assume Linux or WSL. Installation should be done inside a Pyt
 
 ### 2.1 Clone and enter the project
 
-    git clone <repo-url> && cd forward_modelling
-
-Replace `<repo-url>` with the GitHub repository URL.
+    git clone https://github.com/Darkening-Silhouette/Forward_Modelling && cd forward_modelling
 
 ### 2.2 Create the virtual environment and install all dependencies
 
