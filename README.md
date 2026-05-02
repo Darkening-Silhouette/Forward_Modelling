@@ -64,3 +64,5 @@ gprMax requires a working compiler with OpenMP support. It also has a known habi
 
 Start the GUI, load or select a scenario YAML file (or make your own YAML file), choose a method from the dropdown, adjust the method-specific settings, click run, then inspect the output plots and log.
 
+You may also apply topographic/elevation correction. A default .csv file is provided in /topographic_elevation_correction folder.
+
