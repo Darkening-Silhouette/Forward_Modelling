@@ -1,0 +1,118 @@
+name: Jan_schaffhausen_salt_mine_gprmax_dedicated
+description: gprMax-dedicated local-window version of Jan's Schaffhausen salt-mine
+  model. Keeps Jan's layer interfaces at 0.3 m and 26 m, resistivities 100 / 10000
+  / 250 ohm m, and the same highly resistive/air-filled ellipse at 30 m depth, but
+  reduces the horizontal window so the actual gprMax FDTD grid stays below the GUI
+  safety limit.
+topography:
+- - -20.5
+  - 0.0
+- - 20.5
+  - 0.0
+domain:
+  length: 41.0
+  depth: 38.0
+  dx: 0.05
+  dz: 0.05
+noise:
+  relative_percent: 1.0
+layers:
+- thickness: 0.3
+  resistivity: 100.0
+  conductivity: 0.01
+  vp: 700.0
+  velocity: 700.0
+  epsilon_r: 12.0
+  permittivity: 12.0
+  susceptibility: 1.0e-06
+- thickness: 25.7
+  resistivity: 10000.0
+  conductivity: 0.0001
+  vp: 1800.0
+  velocity: 1800.0
+  epsilon_r: 6.0
+  permittivity: 6.0
+  susceptibility: 1.0e-06
+- thickness: 999.0
+  resistivity: 250.0
+  conductivity: 0.004
+  vp: 3200.0
+  velocity: 3200.0
+  epsilon_r: 8.0
+  permittivity: 8.0
+  susceptibility: 1.0e-06
+target_specs:
+- target_type: Ellipse / elongated lens
+  position_mode: Custom depth
+  horizontal_position: Centre
+  size: Custom
+  property_preset: Custom
+  custom_x: 0.0
+  custom_depth: 30.0
+  radius: 2.0
+  width: 4.0
+  height: 6.0
+  angle: 0.0
+  resistivity: 1000000.0
+  conductivity: 1.0e-06
+  vp: 340.0
+  epsilon_r: 1.0
+  susceptibility: 0.0
+survey:
+  ert:
+    array: combined
+    scheme: combined
+    combined_arrays:
+    - wa
+    - slm
+    - dd
+    electrodes: 41
+    spacing: 1.854
+    noise_rel: 1.0
+    noise_abs: 1.0e-06
+    seed: 1337
+    run_inversion: true
+    lam: 2000.0
+    lambda_factor: 0.8
+    z_weight: 1.0
+    max_iter: 20
+  seismic:
+    source_frequency: 25.0
+    receiver_spacing: 1.854
+    recording_time_ms: 1000.0
+    freq: 25.0
+    dx: 1.0
+    dz: 1.0
+    duration: 1.0
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+    show_wavefield_snapshot: true
+    snapshot_time_ms: 300.0
+    receiver_depth_below_surface: 2.0
+    source_depth_below_surface: 2.0
+  gpr:
+    frequency_mhz: 25.0
+    trace_spacing: 2.2
+    time_window_ns: 800.0
+    component: Ey
+    run_actual_gprmax: true
+    run_background_difference: false
+  em:
+    frequencies:
+    - 475
+    - 1525
+    - 5625
+    - 16025
+    - 63025
+    coil_spacing: 3.66
+    height: 0.0
+    orientation: ZZ
+files:
+  elevation_csv: ''
+  data_file: ''
+  output_dir: /home/luqman/forward_modelling/outputs
+topography_handling:
+  mode: crop_around_target
+  center_distance_m: 34.0
+  note: Change center_distance_m to move the local gprMax window along the CSV profile.
+    Keep target custom_x=0.0 to keep the anomaly centred in that cropped window.

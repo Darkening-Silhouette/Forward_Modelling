@@ -1,0 +1,240 @@
+name: Jan_schaffhausen_salt_mine_elastic
+description: >
+  Elastic-seismic version of Jan's Schaffhausen salt-mine scenario.
+  Based on Jan's original geometry: profile length 92.7 m, geological depth 50 m,
+  layer interfaces at 0.3 m and 26 m, and the air-filled/highly resistive elliptical
+  anomaly at x = 34 m in Jan's coordinate system. GUI coordinates are centred, so
+  anomaly x = 34 - 92.7/2 = -12.35 m. This version adds Vs and density values for
+  elastic Devito modelling and uses a safer lower-frequency setup for fieldwork-style
+  seismic feasibility testing.
+
+topography:
+  - [-46.35, 0.0]
+  - [46.35, 0.0]
+
+domain:
+  length: 92.7
+  depth: 50.0
+  dx: 1.0
+  dz: 1.0
+
+noise:
+  relative_percent: 1.0
+
+layers:
+  - thickness: 0.3
+    resistivity: 100.0
+    conductivity: 0.01
+    vp: 700.0
+    velocity: 700.0
+    vs: 300.0
+    rho: 1700.0
+    epsilon_r: 12.0
+    permittivity: 12.0
+    susceptibility: 1.0e-06
+
+  - thickness: 25.7
+    resistivity: 10000.0
+    conductivity: 0.0001
+    vp: 1800.0
+    velocity: 1800.0
+    vs: 850.0
+    rho: 2100.0
+    epsilon_r: 6.0
+    permittivity: 6.0
+    susceptibility: 1.0e-06
+
+  - thickness: 999.0
+    resistivity: 250.0
+    conductivity: 0.004
+    vp: 3200.0
+    velocity: 3200.0
+    vs: 1700.0
+    rho: 2300.0
+    epsilon_r: 8.0
+    permittivity: 8.0
+    susceptibility: 1.0e-06
+
+target_specs:
+  - target_type: Ellipse / elongated lens
+    position_mode: Custom depth
+    horizontal_position: Custom
+    size: Custom
+    property_preset: Custom
+    custom_x: -12.35
+    custom_depth: 30.0
+    radius: 2.0
+    width: 4.0
+    height: 6.0
+    angle: 0.0
+    resistivity: 1000000.0
+    conductivity: 1.0e-06
+    vp: 340.0
+    vs: 150.0
+    rho: 1000.0
+    epsilon_r: 1.0
+    susceptibility: 0.0
+
+anomalies:
+  - type: polygon
+    points:
+      - [-10.35, -30.0]
+      - [-10.357610603816509, -29.738532771757026]
+      - [-10.380384493975583, -29.47905546699921]
+      - [-10.418148347421862, -29.223542864692437]
+      - [-10.470614758428184, -28.973939570022992]
+      - [-10.5373844259267, -28.7321452147779]
+      - [-10.617949192431123, -28.5]
+      - [-10.711695911422016, -28.279270690946863]
+      - [-10.817911113762044, -28.07163717094038]
+      - [-10.935786437626904, -27.878679656440358]
+      - [-11.06442478062692, -27.701866670643067]
+      - [-11.202847127297908, -27.542543867133023]
+      - [-11.35, -27.401923788646684]
+      - [-11.504763476518601, -27.28107663889005]
+      - [-11.665959713348663, -27.180922137642277]
+      - [-11.832361909794958, -27.102222521132795]
+      - [-12.00270364466614, -27.045576740963376]
+      - [-12.175688514504683, -27.011415905724764]
+      - [-12.35, -27.0]
+      - [-12.524311485495316, -27.011415905724764]
+      - [-12.69729635533386, -27.045576740963376]
+      - [-12.867638090205041, -27.102222521132795]
+      - [-13.034040286651337, -27.180922137642273]
+      - [-13.195236523481398, -27.28107663889005]
+      - [-13.35, -27.401923788646684]
+      - [-13.497152872702092, -27.542543867133023]
+      - [-13.635575219373079, -27.701866670643067]
+      - [-13.764213562373094, -27.878679656440358]
+      - [-13.882088886237955, -28.07163717094038]
+      - [-13.988304088577983, -28.27927069094686]
+      - [-14.082050807568876, -28.5]
+      - [-14.1626155740733, -28.7321452147779]
+      - [-14.229385241571816, -28.973939570022992]
+      - [-14.281851652578137, -29.223542864692437]
+      - [-14.319615506024416, -29.479055466999206]
+      - [-14.34238939618349, -29.738532771757026]
+      - [-14.35, -30.0]
+      - [-14.34238939618349, -30.261467228242974]
+      - [-14.319615506024416, -30.52094453300079]
+      - [-14.281851652578137, -30.776457135307563]
+      - [-14.229385241571816, -31.026060429977004]
+      - [-14.1626155740733, -31.2678547852221]
+      - [-14.082050807568876, -31.5]
+      - [-13.988304088577983, -31.720729309053137]
+      - [-13.882088886237955, -31.92836282905962]
+      - [-13.764213562373095, -32.121320343559645]
+      - [-13.635575219373079, -32.298133329356936]
+      - [-13.497152872702092, -32.45745613286697]
+      - [-13.350000000000001, -32.598076211353316]
+      - [-13.1952365234814, -32.71892336110995]
+      - [-13.034040286651338, -32.81907786235772]
+      - [-12.867638090205041, -32.897777478867205]
+      - [-12.69729635533386, -32.95442325903662]
+      - [-12.524311485495316, -32.98858409427524]
+      - [-12.35, -33.0]
+      - [-12.175688514504683, -32.98858409427524]
+      - [-12.00270364466614, -32.95442325903662]
+      - [-11.832361909794958, -32.897777478867205]
+      - [-11.665959713348663, -32.81907786235772]
+      - [-11.504763476518601, -32.71892336110995]
+      - [-11.35, -32.598076211353316]
+      - [-11.202847127297908, -32.45745613286697]
+      - [-11.064424780626922, -32.298133329356936]
+      - [-10.935786437626906, -32.121320343559645]
+      - [-10.817911113762044, -31.92836282905962]
+      - [-10.711695911422016, -31.72072930905314]
+      - [-10.617949192431123, -31.5]
+      - [-10.5373844259267, -31.2678547852221]
+      - [-10.470614758428184, -31.026060429977008]
+      - [-10.418148347421862, -30.776457135307563]
+      - [-10.380384493975583, -30.52094453300079]
+      - [-10.357610603816509, -30.261467228242974]
+    resistivity: 1000000.0
+    conductivity: 1.0e-06
+    vp: 340.0
+    velocity: 340.0
+    vs: 150.0
+    rho: 1000.0
+    epsilon_r: 1.0
+    permittivity: 1.0
+    susceptibility: 0.0
+
+survey:
+  seismic:
+    source_frequency: 15.0
+    freq: 15.0
+    receiver_spacing: 2.0
+    recording_time_ms: 1000.0
+    duration: 1.0
+
+    # Geometry
+    x_src: 46.35
+    z_src: 2.0
+    z_rec: 2.0
+    x_rec_start: 0.0
+    x_rec_end: 92.7
+
+    # Elastic solver options
+    space_order: 8
+    nbl: 30
+    free_surface: true
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+
+    # Multi-shot/CMP options
+    acquisition_mode: single_shot
+    nshots: 1
+    shot_spacing: 5.0
+
+    # Elastic numerical/source controls
+    max_dt_ms: 0.5
+    elastic_source_scale: 1000000.0
+
+    # Air/topography filler for elastic model
+    vp_air: 560.0
+    vs_air: 150.0
+    rho_air: 1000.0
+
+    # Plot/QC toggles inherited by acoustic GUI; harmless for elastic
+    show_refraction_overlay: true
+    show_apparent_velocity: false
+    show_first_arrival_difference: true
+    show_refraction_summary: false
+    save_wavefield_snapshot: false
+
+  ert:
+    array: combined
+    scheme: combined
+    combined_arrays: [wa, slm, dd]
+    electrodes: 41
+    electrode_x_start: -37.08
+    electrode_x_end: 37.08
+    spacing: 1.854
+    noise_rel: 1.0
+    noise_abs: 1.0e-06
+    seed: 1337
+    run_inversion: true
+    lam: 2000.0
+    lambda_factor: 0.8
+    z_weight: 1.0
+    max_iter: 20
+
+  gpr:
+    frequency_mhz: 25.0
+    trace_spacing: 2.0
+    time_window_ns: 1600.0
+    component: Ey
+    run_actual_gprmax: false
+    run_background_difference: false
+
+  em:
+    frequencies: [475, 1525, 5625, 16025, 63025]
+    coil_spacing: 3.66
+    height: 0.0
+    orientation: ZZ
+
+files:
+  elevation_csv: ""
+  data_file: ""
+  output_dir: /home/luqman/forward_modelling/outputs

@@ -1,0 +1,14 @@
+numpy==2.4.3
+scipy==1.17.1
+matplotlib==3.10.9
+PyYAML==6.0.3
+PySide6==6.11.0
+pygimli==1.5.5.post1
+devito==4.8.21
+simpeg==0.25.2
+discretize==0.12.0
+pymatsolver==0.4.0
+pandas==3.0.2
+h5py==3.16.0
+tqdm==4.67.3
+pillow==12.2.0

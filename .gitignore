@@ -1,0 +1,10 @@
+venv/
+test_venv/
+__pycache__/
+*.pyc
+outputs/
+*.log
+.DS_Store
+*.bak
+*.bak_*
+*.bak*

@@ -1,0 +1,43 @@
+topography:
+- - 0.0
+  - 0.0
+- - 20.0
+  - 0.0
+layers:
+- thickness: 4.0
+  resistivity: 80.0
+  velocity: 1600.0
+  permittivity: 12.0
+- thickness: 6.0
+  resistivity: 300.0
+  velocity: 2200.0
+  permittivity: 8.0
+anomalies: []
+survey:
+  ert:
+    n_electrodes: 21
+    electrode_spacing: 1.0
+    array: dipole-dipole
+    noise_rel: 2.0
+    noise_abs: 1e-6
+  seismic:
+    freq: 18.0
+    dx: 1.0
+    dz: 1.0
+    duration: 1.2
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+    show_wavefield_snapshot: true
+    snapshot_time_ms: 300.0
+    receiver_depth_below_surface: 2.0
+    source_depth_below_surface: 2.0
+  gpr:
+    freq: 1000e6
+    dx: 0.05
+    dt: 5.0e-10
+    n_samples: 1024
+  em:
+    freq: 1500.0
+    height: 0.4
+    orientation: ZZ
+noise_level: 2.0

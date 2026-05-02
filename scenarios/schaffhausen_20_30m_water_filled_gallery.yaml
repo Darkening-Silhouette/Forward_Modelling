@@ -1,0 +1,119 @@
+topography:
+- - -50.0
+  - 0.0
+- - 50.0
+  - 0.0
+domain:
+  length: 100.0
+  depth: 50.0
+  dx: 1.0
+  dz: 1.0
+noise:
+  relative_percent: 3.0
+layers:
+- thickness: 2.0
+  resistivity: 80.0
+  conductivity: 0.0125
+  vp: 500.0
+  velocity: 500.0
+  epsilon_r: 14.0
+  permittivity: 14.0
+  susceptibility: 1.0e-06
+- thickness: 10.0
+  resistivity: 250.0
+  conductivity: 0.004
+  vp: 1400.0
+  velocity: 1400.0
+  epsilon_r: 10.0
+  permittivity: 10.0
+  susceptibility: 1.0e-06
+- thickness: 18.0
+  resistivity: 700.0
+  conductivity: 0.00143
+  vp: 2800.0
+  velocity: 2800.0
+  epsilon_r: 7.0
+  permittivity: 7.0
+  susceptibility: 1.0e-06
+- thickness: 999.0
+  resistivity: 5000.0
+  conductivity: 0.0002
+  vp: 4200.0
+  velocity: 4200.0
+  epsilon_r: 6.0
+  permittivity: 6.0
+  susceptibility: 1.0e-06
+anomalies:
+- type: polygon
+  points:
+  - - -8.0
+    - -26.0
+  - - 8.0
+    - -26.0
+  - - 8.0
+    - -23.0
+  - - -8.0
+    - -23.0
+  resistivity: 2.0
+  conductivity: 0.5
+  vp: 1500.0
+  velocity: 1500.0
+  epsilon_r: 80.0
+  permittivity: 80.0
+  susceptibility: 0.0
+- type: polygon
+  points:
+  - - -7.0
+    - -23.0
+  - - 7.0
+    - -23.0
+  - - 4.0
+    - -17.0
+  - - 1.5
+    - -12.0
+  - - -1.5
+    - -12.0
+  - - -4.0
+    - -17.0
+  resistivity: 15.0
+  conductivity: 0.0667
+  vp: 1000.0
+  velocity: 1000.0
+  epsilon_r: 35.0
+  permittivity: 35.0
+  susceptibility: 1.0e-06
+survey:
+  ert:
+    array: dipole-dipole
+    scheme: dipole-dipole
+    electrodes: 81
+    spacing: 1.25
+    noise_abs: 1.0e-06
+    run_inversion: true
+  seismic:
+    source_frequency: 40.0
+    receiver_spacing: 1.25
+    recording_time_ms: 500.0
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+    show_wavefield_snapshot: true
+    snapshot_time_ms: 300.0
+    receiver_depth_below_surface: 2.0
+    source_depth_below_surface: 2.0
+  gpr:
+    frequency_mhz: 50.0
+    trace_spacing: 1.0
+    time_window_ns: 250.0
+    component: Ey
+    run_actual_gprmax: false
+    run_background_difference: true
+  em:
+    frequencies:
+    - 475
+    - 1525
+    - 5625
+    - 16025
+    - 63025
+    coil_spacing: 3.66
+    height: 0.2
+    orientation: ZZ

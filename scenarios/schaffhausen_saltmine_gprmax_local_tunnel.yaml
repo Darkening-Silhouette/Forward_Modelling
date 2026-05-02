@@ -1,0 +1,123 @@
+name: schaffhausen_saltmine_gprmax_local_tunnel
+description: 'Reduced local gprMax-compatible model for a possible undocumented collapsed/air-filled
+  tunnel related to Schaffhausen salt-mine subsidence. This is a local 2D window,
+  not the full mine-scale model. Frequency is lowered so gprMax can satisfy the wavelength
+  sampling criterion with dx=dz=0.05 m.
+
+  '
+topography:
+- - -22.5
+  - 0.0
+- - 22.5
+  - 0.0
+domain:
+  length: 45.0
+  depth: 35.0
+  dx: 0.05
+  dz: 0.05
+noise:
+  relative_percent: 2.0
+layers:
+- thickness: 5.0
+  resistivity: 150.0
+  conductivity: 0.006667
+  vp: 700.0
+  velocity: 700.0
+  epsilon_r: 12.0
+  permittivity: 12.0
+  susceptibility: 1.0e-06
+- thickness: 20.0
+  resistivity: 80.0
+  conductivity: 0.0125
+  vp: 1800.0
+  velocity: 1800.0
+  epsilon_r: 18.0
+  permittivity: 18.0
+  susceptibility: 1.0e-06
+- thickness: 999.0
+  resistivity: 30.0
+  conductivity: 0.033333
+  vp: 3200.0
+  velocity: 3200.0
+  epsilon_r: 6.0
+  permittivity: 6.0
+  susceptibility: 1.0e-06
+target_specs:
+- target_type: Rectangle / block
+  position_mode: Custom depth
+  horizontal_position: Centre
+  size: Custom
+  property_preset: Air-filled void
+  custom_x: 0.0
+  custom_depth: 24.5
+  radius: 1.5
+  width: 12.0
+  height: 3.0
+  angle: 0.0
+  resistivity: 100000.0
+  conductivity: 1.0e-05
+  vp: 340.0
+  epsilon_r: 1.0
+  susceptibility: 0.0
+anomalies:
+- type: polygon
+  points:
+  - - -6.0
+    - -26.0
+  - - 6.0
+    - -26.0
+  - - 6.0
+    - -23.0
+  - - -6.0
+    - -23.0
+  resistivity: 100000.0
+  conductivity: 1.0e-05
+  vp: 340.0
+  velocity: 340.0
+  epsilon_r: 1.0
+  permittivity: 1.0
+  susceptibility: 0.0
+survey:
+  ert:
+    array: dipole-dipole
+    scheme: dipole-dipole
+    electrodes: 81
+    spacing: 0.5
+    noise_rel: 2.0
+    noise_abs: 1.0e-06
+    run_inversion: true
+  seismic:
+    source_frequency: 20.0
+    receiver_spacing: 1.0
+    recording_time_ms: 1000.0
+    freq: 20.0
+    dx: 1.0
+    dz: 1.0
+    duration: 1.0
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+    show_wavefield_snapshot: true
+    snapshot_time_ms: 300.0
+    receiver_depth_below_surface: 2.0
+    source_depth_below_surface: 2.0
+  gpr:
+    frequency_mhz: 50.0
+    trace_spacing: 1.25
+    time_window_ns: 900.0
+    component: Ey
+    run_actual_gprmax: true
+    run_background_difference: false
+  em:
+    frequencies:
+    - 475
+    - 1525
+    - 5625
+    - 16025
+    - 63025
+    coil_spacing: 3.66
+    height: 0.0
+    orientation: ZZ
+files:
+  elevation_csv: ''
+  data_file: ''
+  output_dir: /home/luqman/forward_modelling/outputs

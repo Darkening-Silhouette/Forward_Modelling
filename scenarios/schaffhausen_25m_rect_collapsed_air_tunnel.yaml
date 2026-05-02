@@ -1,0 +1,152 @@
+name: schaffhausen_25m_rect_collapsed_air_tunnel
+description: 'Field-scale Schaffhausen salt-mine subsidence scenario. Undocumented
+  rectangular gallery/tunnel at ~25 m depth, mostly collapsed but with residual air-filled
+  void. Designed for ERT, seismic, EM, and GPR synthetic screening. Actual gprMax
+  FDTD disabled because this is a 50 m deep field-scale model.
+
+  '
+topography:
+- - -50.0
+  - 0.0
+- - 50.0
+  - 0.0
+domain:
+  length: 100.0
+  depth: 50.0
+  dx: 0.5
+  dz: 0.5
+noise:
+  relative_percent: 3.0
+layers:
+- thickness: 2.0
+  resistivity: 100.0
+  conductivity: 0.01
+  vp: 500.0
+  velocity: 500.0
+  epsilon_r: 14.0
+  permittivity: 14.0
+  susceptibility: 1.0e-06
+- thickness: 10.0
+  resistivity: 250.0
+  conductivity: 0.004
+  vp: 1400.0
+  velocity: 1400.0
+  epsilon_r: 10.0
+  permittivity: 10.0
+  susceptibility: 1.0e-06
+- thickness: 18.0
+  resistivity: 800.0
+  conductivity: 0.00125
+  vp: 2800.0
+  velocity: 2800.0
+  epsilon_r: 7.0
+  permittivity: 7.0
+  susceptibility: 1.0e-06
+- thickness: 999.0
+  resistivity: 5000.0
+  conductivity: 0.0002
+  vp: 4200.0
+  velocity: 4200.0
+  epsilon_r: 6.0
+  permittivity: 6.0
+  susceptibility: 1.0e-06
+target_specs:
+- target_type: Rectangle / block
+  position_mode: Custom depth
+  horizontal_position: Custom
+  size: Custom
+  property_preset: Air-filled void
+  custom_x: 0.0
+  custom_depth: 25.0
+  radius: 1.0
+  width: 18.0
+  height: 3.0
+  angle: 0.0
+  resistivity: 100000.0
+  conductivity: 1.0e-05
+  vp: 340.0
+  epsilon_r: 1.0
+  susceptibility: 0.0
+anomalies:
+- type: polygon
+  points:
+  - - -9.0
+    - -26.5
+  - - 9.0
+    - -26.5
+  - - 9.0
+    - -23.5
+  - - -9.0
+    - -23.5
+  resistivity: 100000.0
+  conductivity: 1.0e-05
+  vp: 340.0
+  velocity: 340.0
+  epsilon_r: 1.0
+  permittivity: 1.0
+  susceptibility: 0.0
+- type: polygon
+  points:
+  - - -8.0
+    - -23.5
+  - - 8.0
+    - -23.5
+  - - 5.0
+    - -18.0
+  - - 2.0
+    - -12.0
+  - - -2.0
+    - -12.0
+  - - -5.0
+    - -18.0
+  resistivity: 120.0
+  conductivity: 0.00833
+  vp: 1000.0
+  velocity: 1000.0
+  epsilon_r: 18.0
+  permittivity: 18.0
+  susceptibility: 1.0e-06
+survey:
+  ert:
+    array: dipole-dipole
+    scheme: dipole-dipole
+    electrodes: 81
+    spacing: 1.25
+    noise_rel: 3.0
+    noise_abs: 1.0e-06
+    run_inversion: true
+  seismic:
+    source_frequency: 35.0
+    receiver_spacing: 1.25
+    recording_time_ms: 600.0
+    freq: 35.0
+    dx: 1.0
+    dz: 1.0
+    duration: 0.6
+    topography_mode: horizontal_interfaces
+    run_background_difference: true
+    show_wavefield_snapshot: true
+    snapshot_time_ms: 300.0
+    receiver_depth_below_surface: 2.0
+    source_depth_below_surface: 2.0
+  gpr:
+    frequency_mhz: 50.0
+    trace_spacing: 1.0
+    time_window_ns: 600.0
+    component: Ey
+    run_actual_gprmax: false
+    run_background_difference: false
+  em:
+    frequencies:
+    - 475
+    - 1525
+    - 5625
+    - 16025
+    - 63025
+    coil_spacing: 3.66
+    height: 0.2
+    orientation: ZZ
+files:
+  elevation_csv: ''
+  data_file: ''
+  output_dir: /home/luqman/forward_modelling/outputs
