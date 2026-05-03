@@ -10,7 +10,7 @@ The GUI is built with PySide6 and currently supports:
 - GPR using gprMax, with a built-in GUI preview/fallback for quick checks
 - Seismic acoustic using Devito
 - Seismic elastic using Devito
-- EM 1D using the professor's 1D FDEM reflection-coefficient implementation
+- EM 1D using the 1D FDEM reflection-coefficient implementation
 - EM 2D using SimPEG as a practical 3D finite-volume approximation for 2D profile-style EM anomaly testing
 
 The purpose is not to replace specialist modelling software. It is meant to provide a unified tool for quickly testing whether a target may be detectable by different methods under consistent assumptions.
