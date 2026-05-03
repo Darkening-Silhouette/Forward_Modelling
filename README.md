@@ -31,8 +31,8 @@ Implementation summary:
 - GPR: gprMax FDTD modelling, with GUI-compatible preview/fallback plots
 - Seismic acoustic: acoustic finite-difference wave simulation with Devito
 - Seismic elastic: isotropic elastic velocity-stress finite-difference simulation with Devito
-- EM 1D: professor-style 1D FDEM layered-earth solver
-- EM 2D: SimPEG frequency-domain EM approximation for spatial anomaly profiles
+- EM 1D: 1D FDEM layered-earth solver
+- EM 2D: SimPEG FDEM approximation for spatial anomaly profiles
 
 The EM 1D module should be treated as the accurate layered-earth reference. The EM 2D module is intended for spatial feasibility and anomaly-shape testing.
 
@@ -40,7 +40,7 @@ The EM 1D module should be treated as the accurate layered-earth reference. The 
 
 ## 2. Installation instructions
 
-These instructions assume Linux or WSL (for Windows) or Linux VM (for MacOS). Installation should be done inside a Python virtual environment in the project folder.
+These instructions assume Linux or WSL (for Windows) or Linux VM (for MacOS). Installation should be done inside a Python virtual environment in the project folder. gprMax requires a working compiler with OpenMP support. It also has a known habit of being annoying on Windows, so use WSL/Linux emulator, or join the dark side and use Linux ;)
 
 ### 2.1 Clone and enter the project
 
@@ -49,8 +49,6 @@ These instructions assume Linux or WSL (for Windows) or Linux VM (for MacOS). In
 ### 2.2 Create the virtual environment and install all dependencies
 
     python3 -m venv venv && source venv/bin/activate && python -m pip install --upgrade pip setuptools wheel && python -m pip install -r requirements.txt && python -m pip install numpy Cython && python -m pip install --no-build-isolation -r requirements-gprmax.txt
-
-gprMax requires a working compiler with OpenMP support. It also has a known habit of being annoying on Windows, so use WSL/Linux emulator, or join the dark side and use Linux ;)
 
 ### 2.3 Test the installation
 
@@ -64,5 +62,5 @@ gprMax requires a working compiler with OpenMP support. It also has a known habi
 
 Start the GUI, load or select a scenario YAML file (or make your own YAML file), choose a method from the dropdown, adjust the method-specific settings, click run, then inspect the output plots and log.
 
-You may also apply topographic/elevation correction. A default .csv file is provided in /topographic_elevation_correction folder.
+You may also apply topographic/elevation correction. A default .csv file is provided in the /topographic_elevation_correction folder.
 
