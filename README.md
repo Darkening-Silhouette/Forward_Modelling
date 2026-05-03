@@ -40,7 +40,9 @@ The EM 1D module should be treated as the accurate layered-earth reference. The 
 
 ## 2. Installation instructions
 
-These instructions assume Linux or WSL (for Windows) or Linux VM (for MacOS). Installation should be done inside a Python virtual environment in the project folder. gprMax requires a working compiler with OpenMP support. It also has a known habit of being annoying on Windows, so use WSL/Linux emulator, or join the dark side and use Linux ;)
+These instructions assume Linux or WSL (for Windows) or Linux VM (for MacOS). Installation should be done inside a Python virtual environment in the project folder. 
+
+gprMax requires a working compiler with OpenMP support. It also has a known habit of being annoying on Windows, so use WSL/Linux emulator, or join the dark side and use Linux ;)
 
 ### 2.1 Clone and enter the project
 
