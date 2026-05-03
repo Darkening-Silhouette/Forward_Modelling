@@ -1293,13 +1293,14 @@ class MainWindow(QMainWindow):
             plots = {
                 "Preview resistivity": {
                     "type": "image",
-                    "array": resistivity_model,
+                    "array": np.log10(np.maximum(resistivity_model, 1e-12)),
                     "extent": extent,
                     "origin": "lower",
-                    "title": "Preview resistivity model",
+                    "title": "Preview resistivity model (log10 scale)",
                     "xlabel": "x [m]",
                     "ylabel": "z [m]",
                     "colorbar": True,
+                    "clabel": "log10 resistivity [ohm m]",
                 },
                 "Preview velocity": {
                     "type": "image",
