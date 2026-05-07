@@ -46,7 +46,7 @@ gprMax requires a working compiler with OpenMP support. It also has a known habi
 
 ### 2.1 Clone and enter the project
 
-    git clone https://github.com/Darkening-Silhouette/Forward_Modelling && cd forward_modelling
+    git clone https://github.com/Darkening-Silhouette/Forward_Modelling && cd Forward_Modelling
 
 ### 2.2 Create the virtual environment and install all dependencies
 
